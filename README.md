@@ -18,7 +18,7 @@ git clone https://github.com/quntnim/otoge-bot.git
 ```sh
 python -m venv [가상환경명]
 ```
-3. 파이썬 가상 환경을 실행하고 패키지를 설치 합니다.
+3. 파이썬 가상 환경을 실행 하고 패키지를 설치 합니다.
 ```sh
 [가상환경명]\Scripts\activate
 pip install -r requirements.txt

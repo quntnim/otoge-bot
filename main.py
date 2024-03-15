@@ -1,3 +1,6 @@
+import asyncio
+import os.path
+
 import discord
 from discord.ext import commands
 
@@ -28,9 +31,18 @@ async def on_message(message):
     await bot.process_commands(message)
 
 
-@bot.command(name="test")
-async def test(ctx):
-    await ctx.channel.send("Test command executed")
+async def load_extensions():
+    cogs_path = 'Cogs'
+    abs_cogs_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), cogs_path)
+    for filename in os.listdir(abs_cogs_path):
+        if filename.endswith('.py'):
+            await bot.load_extension(f'Cogs.{filename[:-3]}')
 
 
-bot.run(variable.get_token())
+async def main():
+    async with bot:
+        await load_extensions()
+        await bot.start(variable.get_token())
+
+
+asyncio.run(main())
