@@ -8,6 +8,7 @@ class Chunithm(commands.Cog):
 
     @commands.command()
     async def chunithm(self, ctx):
+        await ctx.send(str(type(ctx)))
         await ctx.send("chunithm 명령어 테스트")
 
 
