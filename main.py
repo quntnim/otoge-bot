@@ -6,9 +6,8 @@ from discord.ext import commands
 
 import load_json_variable as variable
 
-intents = discord.Intents.default()
-intents.message_content = True
-bot = commands.Bot(command_prefix=".", intents=intents)
+intents = discord.Intents.all()
+bot = commands.Bot(command_prefix=".", intents=intents, sync_command=True,)
 cogs_path = 'Cogs'
 abs_cogs_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), cogs_path)
 
