@@ -1,7 +1,6 @@
+from typing import Any
 import json
 
-
-def get_token():
+def get_parameter(key: str) -> Any:
     with open('./parameter.json') as f:
-        data = json.load(f)
-    return data['bot-token']
+        return json.load(f)[key]
